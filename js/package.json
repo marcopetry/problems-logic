@@ -1,0 +1,12 @@
+{
+  "name": "problems-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bee": "node ./beecrowd/$1/beecrowd-$1.js"
+  },
+  "author": "Marco Petry",
+  "license": "ISC"
+}
