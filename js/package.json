@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bee": "node ./beecrowd/$1/beecrowd-$1.js"
+    "bee": "scripts/beecrowd-run.sh"
   },
   "author": "Marco Petry",
   "license": "ISC"
