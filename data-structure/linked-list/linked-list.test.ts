@@ -89,4 +89,14 @@ describe("Test cases for shift method", () => {
 
     expect(returnShiftMethod).toBeNull();
   });
+
+  test("Unshift in list with 1 item", () => {
+    const linkedList = new LinkedList(1);
+
+    const returnShiftMethod = linkedList.shift();
+
+    expect(returnShiftMethod?.value).toBe(1);
+    expect(linkedList.head).toBeNull();
+    expect(linkedList.tail).toBeNull();
+  });
 });
