@@ -82,7 +82,11 @@ export class LinkedList {
     if (this.length === 1) {
       this.head = null;
       this.tail = null;
+    } else {
+      this.head = this.head!.next;
     }
+
+    this.length--;
 
     return firstItem;
   }
