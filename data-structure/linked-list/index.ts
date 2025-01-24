@@ -77,5 +77,13 @@ export class LinkedList {
     if (this.length === 0) {
       return null;
     }
+
+    const firstItem = this.head;
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    }
+
+    return firstItem;
   }
 }
