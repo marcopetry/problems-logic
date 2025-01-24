@@ -170,3 +170,65 @@ describe("Test cases to set method in linked list", () => {
     expect(linkedList.tail?.value).toBe(60);
   });
 });
+
+describe("Test cases to insert method in linked list", () => {
+  test("test insert in invalid index", () => {
+    const linkedList = new LinkedList(1);
+
+    linkedList.push(2);
+    linkedList.push(3);
+    linkedList.push(4);
+    linkedList.push(5);
+    linkedList.push(6);
+    linkedList.push(7);
+
+    expect(linkedList.insert(-1, 10)).toBe(false);
+    expect(linkedList.insert(8, 10)).toBe(false);
+  });
+
+  test("test insert in first item", () => {
+    const linkedList = new LinkedList(1);
+
+    linkedList.push(2);
+    linkedList.push(3);
+    linkedList.push(4);
+    linkedList.push(5);
+    linkedList.push(6);
+    linkedList.push(7);
+
+    expect(linkedList.insert(0, 10)).toBe(true);
+    expect(linkedList.head?.value).toBe(10);
+    expect(linkedList.length).toBe(8);
+  });
+
+  test("test insert in last item", () => {
+    const linkedList = new LinkedList(1);
+
+    linkedList.push(2);
+    linkedList.push(3);
+    linkedList.push(4);
+    linkedList.push(5);
+    linkedList.push(6);
+    linkedList.push(7);
+
+    expect(linkedList.insert(7, 10)).toBe(true);
+    expect(linkedList.tail?.value).toBe(10);
+    expect(linkedList.length).toBe(8);
+  });
+
+  test("test insert in middle list", () => {
+    const linkedList = new LinkedList(1);
+
+    linkedList.push(2);
+    linkedList.push(3);
+    linkedList.push(4);
+    linkedList.push(5);
+    linkedList.push(6);
+    linkedList.push(7);
+
+    expect(linkedList.insert(4, 10)).toBe(true);
+    expect(linkedList.get(4)?.value).toBe(10);
+
+    expect(linkedList.length).toBe(8);
+  });
+});
