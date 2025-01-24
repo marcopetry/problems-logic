@@ -15,7 +15,7 @@ export class LinkedList {
   constructor(value?: number) {
     this.head = new Node(value);
     this.tail = this.head;
-    this.length = 1;
+    this.length = value ? 1 : 0;
   }
 
   push(value: number) {
@@ -54,5 +54,22 @@ export class LinkedList {
 
     this.length--;
     return lastItem;
+  }
+
+  unshift(value: number) {
+    const newNode = new Node(value);
+
+    if (this.length === 0) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      let temp = this.head;
+      this.head = newNode;
+      this.head.next = temp;
+    }
+
+    this.length++;
+
+    return this;
   }
 }
