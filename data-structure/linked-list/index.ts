@@ -72,4 +72,10 @@ export class LinkedList {
 
     return this;
   }
+
+  shift() {
+    if (this.length === 0) {
+      return null;
+    }
+  }
 }
