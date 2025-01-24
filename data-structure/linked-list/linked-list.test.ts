@@ -116,3 +116,30 @@ describe("Test cases for shift method", () => {
     expect(linkedList.length).toBe(3);
   });
 });
+
+describe("Test cases to get node in linked list", () => {
+  const linkedList = new LinkedList(1);
+
+  linkedList.push(2);
+  linkedList.push(3);
+  linkedList.push(4);
+  linkedList.push(5);
+  linkedList.push(6);
+  linkedList.push(7);
+
+  test("Test index outside list", () => {
+    let node = linkedList.get(-1);
+    expect(node).toBeUndefined();
+
+    node = linkedList.get(linkedList.length);
+    expect(node).toBeUndefined();
+  });
+
+  test("Test get index list", () => {
+    let node = linkedList.get(0);
+    expect(node?.value).toBe(1);
+
+    node = linkedList.get(5);
+    expect(node?.value).toBe(6);
+  });
+});
