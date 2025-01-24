@@ -32,4 +32,27 @@ export class LinkedList {
     this.length++;
     return this;
   }
+
+  pop() {
+    if (this.length < 1) return undefined;
+
+    let temp = this.head;
+    let nextValue = this.head?.next;
+    const lastItem = this.tail;
+
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      while (nextValue?.next) {
+        temp = nextValue;
+        nextValue = nextValue.next;
+      }
+      this.tail = temp;
+      this.tail!.next = null;
+    }
+
+    this.length--;
+    return lastItem;
+  }
 }
