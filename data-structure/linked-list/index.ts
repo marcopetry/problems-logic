@@ -102,4 +102,15 @@ export class LinkedList {
 
     return node;
   }
+
+  set(index: number, value: number) {
+    let node = this.get(index);
+
+    if (node) {
+      node.value = value;
+      return true;
+    }
+
+    return false;
+  }
 }
