@@ -90,4 +90,16 @@ export class LinkedList {
 
     return firstItem;
   }
+
+  get(index: number) {
+    if (index < 0 || index >= this.length) return undefined;
+
+    let node = this.head;
+
+    for (let i = 0; i < index; i++) {
+      node = node?.next!;
+    }
+
+    return node;
+  }
 }
