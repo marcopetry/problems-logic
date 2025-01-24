@@ -1,4 +1,4 @@
-import { expect, test } from "@jest/globals";
+import { describe, expect, test } from "@jest/globals";
 import { LinkedList } from ".";
 
 test("Test initial value in linked list", () => {
@@ -44,4 +44,39 @@ test("Test 3 items in linked list with method pop", () => {
   expect(linkedList.tail?.value).toBeUndefined();
 
   expect(linkedList.head).toBeNull();
+});
+
+describe("Test method unshif", () => {
+  test("Add item to empty list", () => {
+    const linkedList = new LinkedList();
+
+    linkedList.unshift(1);
+
+    expect(linkedList.head?.value).toBe(1);
+    expect(linkedList.tail?.value).toBe(1);
+    expect(linkedList.head).toBe(linkedList.tail);
+    expect(linkedList.length).toBe(1);
+  });
+
+  test("Add item in list", () => {
+    const linkedList = new LinkedList(2);
+
+    expect(linkedList.head?.value).toBe(2);
+
+    linkedList.unshift(1);
+
+    expect(linkedList.head?.value).toBe(1);
+    expect(linkedList.tail?.value).toBe(2);
+    expect(linkedList.length).toBe(2);
+  });
+
+  test("Return list", () => {
+    const linkedList = new LinkedList(2);
+
+    expect(linkedList.head?.value).toBe(2);
+
+    const returnedList = linkedList.unshift(1);
+
+    expect(linkedList).toBe(returnedList);
+  });
 });
