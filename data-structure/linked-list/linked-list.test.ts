@@ -80,3 +80,13 @@ describe("Test method unshif", () => {
     expect(linkedList).toBe(returnedList);
   });
 });
+
+describe("Test cases for shift method", () => {
+  test("If the list is empty (head is null), return null.", () => {
+    const linkedList = new LinkedList();
+
+    const returnShiftMethod = linkedList.shift();
+
+    expect(returnShiftMethod).toBeNull();
+  });
+});
