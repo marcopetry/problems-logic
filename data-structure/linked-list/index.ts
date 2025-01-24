@@ -113,4 +113,29 @@ export class LinkedList {
 
     return false;
   }
+
+  insert(index: number, value: number) {
+    if (index < 0 || index > this.length) return false;
+
+    if (index === 0) {
+      this.unshift(value);
+      return true;
+    }
+
+    if (index === this.length) {
+      this.push(value);
+      return true;
+    }
+
+    let node = this.get(index - 1)!;
+    let next = node?.next;
+
+    let newNode = new Node(value);
+    node.next = newNode;
+    newNode.next = next;
+
+    this.length++;
+
+    return true;
+  }
 }
