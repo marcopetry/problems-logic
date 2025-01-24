@@ -143,3 +143,30 @@ describe("Test cases to get node in linked list", () => {
     expect(node?.value).toBe(6);
   });
 });
+
+describe("Test cases to set method in linked list", () => {
+  const linkedList = new LinkedList(1);
+
+  linkedList.push(2);
+  linkedList.push(3);
+  linkedList.push(4);
+  linkedList.push(5);
+  linkedList.push(6);
+  linkedList.push(7);
+
+  test("test to try set invalid index", () => {
+    expect(linkedList.set(-1, 10)).toBe(false);
+    expect(linkedList.set(7, 10)).toBe(false);
+  });
+
+  test("test set valid index", () => {
+    expect(linkedList.set(0, 10)).toBe(true);
+    expect(linkedList.head?.value).toBe(10);
+
+    expect(linkedList.set(1, 20)).toBe(true);
+    expect(linkedList.head?.next?.value).toBe(20);
+
+    expect(linkedList.set(6, 60)).toBe(true);
+    expect(linkedList.tail?.value).toBe(60);
+  });
+});
