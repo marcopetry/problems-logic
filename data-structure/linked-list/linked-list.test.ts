@@ -291,3 +291,28 @@ describe("Test case for remove method", () => {
     expect(linkedList.get(3)?.value).toBe(5);
   });
 });
+
+describe("Test case for reverse method", () => {
+  const linkedList = new LinkedList(1);
+  linkedList.push(2);
+  linkedList.push(3);
+  linkedList.push(4);
+  linkedList.push(5);
+  linkedList.push(6);
+  linkedList.push(7);
+
+  test("reverse method", () => {
+    linkedList.reverse();
+
+    expect(linkedList.length).toBe(7);
+    expect(linkedList.head?.value).toBe(7);
+    expect(linkedList.tail?.value).toBe(1);
+    expect(linkedList.get(0)?.value).toBe(7);
+    expect(linkedList.get(1)?.value).toBe(6);
+    expect(linkedList.get(2)?.value).toBe(5);
+    expect(linkedList.get(3)?.value).toBe(4);
+    expect(linkedList.get(4)?.value).toBe(3);
+    expect(linkedList.get(5)?.value).toBe(2);
+    expect(linkedList.get(6)?.value).toBe(1);
+  });
+});
