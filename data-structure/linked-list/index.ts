@@ -155,4 +155,22 @@ export class LinkedList {
     this.length--;
     return nodeToRemove;
   }
+
+  reverse() {
+    let temp: Node = this.head!;
+    this.head = this.tail;
+    this.tail = temp;
+
+    let prev: Node | null = null;
+    let next = temp?.next;
+
+    for (let i = 0; i < this.length; i++) {
+      next = temp?.next ?? null;
+      temp.next = prev;
+      prev = temp;
+      if (next) temp = next;
+    }
+
+    return this;
+  }
 }
