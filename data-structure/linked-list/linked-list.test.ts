@@ -232,3 +232,62 @@ describe("Test cases to insert method in linked list", () => {
     expect(linkedList.length).toBe(8);
   });
 });
+
+describe("Test case for remove method", () => {
+  test("test indexes outside list", () => {
+    const linkedList = new LinkedList(1);
+    linkedList.push(2);
+    linkedList.push(3);
+    linkedList.push(4);
+    linkedList.push(5);
+    linkedList.push(6);
+    linkedList.push(7);
+
+    expect(linkedList.remove(-1)).toBeNull();
+    expect(linkedList.remove(linkedList.length)).toBeNull();
+  });
+
+  test("test remove fist element", () => {
+    const linkedList = new LinkedList(1);
+    linkedList.push(2);
+    linkedList.push(3);
+    linkedList.push(4);
+    linkedList.push(5);
+    linkedList.push(6);
+    linkedList.push(7);
+
+    linkedList.remove(0);
+    expect(linkedList.length).toBe(6);
+    expect(linkedList.get(0)?.value).toBe(2);
+  });
+
+  test("test last element", () => {
+    const linkedList = new LinkedList(1);
+    linkedList.push(2);
+    linkedList.push(3);
+    linkedList.push(4);
+    linkedList.push(5);
+    linkedList.push(6);
+    linkedList.push(7);
+
+    linkedList.remove(linkedList.length - 1);
+    expect(linkedList.length).toBe(6);
+    expect(linkedList.get(linkedList.length - 1)?.value).toBe(6);
+  });
+
+  test("test middle element", () => {
+    const linkedList = new LinkedList(1);
+    linkedList.push(2);
+    linkedList.push(3);
+    linkedList.push(4);
+    linkedList.push(5);
+    linkedList.push(6);
+    linkedList.push(7);
+
+    const removedElement = linkedList.remove(3);
+
+    expect(removedElement?.value).toBe(4);
+    expect(linkedList.length).toBe(6);
+    expect(linkedList.get(3)?.value).toBe(5);
+  });
+});
